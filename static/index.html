@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>index</title>
+    <script>
+      window.onload = () => {
+        b.onclick = async () => {
+          let res = await fetch("/capitalize/?s=" + a.value);
+          let data = await res.json();
+          c.value = data;
+        };
+      };
+    </script>
+  </head>
+  <body>
+    <h1>Capitalize some text</h1>
+    <input id="a" value="example text" />
+    <button id="b">click</button>
+    <input id="c" value="" disabled />
+  </body>
+</html>

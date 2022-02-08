@@ -2,7 +2,6 @@ from fastapi import FastAPI
 from fastapi.responses import RedirectResponse
 from fastapi.staticfiles import StaticFiles
 
-
 app = FastAPI()
 
 @app.get("/")

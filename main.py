@@ -1,16 +1,12 @@
 from fastapi import FastAPI
-from fastapi.responses import RedirectResponse
-from fastapi.staticfiles import StaticFiles
 
 app = FastAPI()
 
+
 @app.get("/")
-def index():
-	return RedirectResponse("/index.html")
+def read_root():
+    return {"Hello": "Hello from FastAPI!"}
 
-@app.get("/capitalize/")
-def capitalize(s: str):
-	"""Apply Python's str.upper method to the input `s`."""
-	return s.upper()
-
-app.mount("/", StaticFiles(directory="static"), name="static")
+@app.get("/hash/{hash_type}")
+def read_item(hash_type: str, q: str = None):
+    return {"hash_type": hash_type, "q": q}
